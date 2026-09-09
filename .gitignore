@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# monorepo / Hydrogen
+node_modules/
+hydrogen/node_modules/
+hydrogen/.react-router/
+hydrogen/dist/
