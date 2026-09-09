@@ -69,31 +69,49 @@ export default function Homepage() {
           className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-burgundy/10 blur-3xl"
           aria-hidden
         />
-        <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Wine Besties · Halvico
-          </p>
-          <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-burgundy sm:text-5xl md:text-6xl">
-            Wine + cheese, bestie-approved.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Elegant pairings without the snobbery. Discover pours and plates
-            that actually love each other — then serve them like you’ve done
-            this forever.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/pairings"
-              className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-cream shadow-sm transition hover:bg-burgundy-soft"
-            >
-              Explore pairings
-            </Link>
-            <Link
-              to="/about"
-              className="rounded-full border border-burgundy/30 bg-cream px-6 py-3 text-sm font-semibold text-burgundy transition hover:border-burgundy hover:bg-cream-dark"
-            >
-              Meet Wine Besties
-            </Link>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-14 lg:py-24">
+          <div className="text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+              Wine Besties · Halvico
+            </p>
+            <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-burgundy sm:text-5xl md:text-6xl">
+              Wine + cheese, bestie-approved.
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted lg:mx-0">
+              Elegant pairings without the snobbery. Discover pours and plates
+              that actually love each other — then serve them like you’ve done
+              this forever.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              <Link
+                to="/pairings"
+                className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-cream shadow-sm transition hover:bg-burgundy-soft"
+              >
+                Explore pairings
+              </Link>
+              <Link
+                to="/about"
+                className="rounded-full border border-burgundy/30 bg-cream px-6 py-3 text-sm font-semibold text-burgundy transition hover:border-burgundy hover:bg-cream-dark"
+              >
+                Meet Wine Besties
+              </Link>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
+            <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-[0_20px_50px_-20px_rgba(107,30,42,0.35)] ring-1 ring-burgundy/10">
+              <img
+                src="/images/vineyard-hero.jpg"
+                alt="Sunlit vineyard rows stretching toward the hills"
+                width={1600}
+                height={1067}
+                className="aspect-[3/2] h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <p className="mt-3 text-center text-xs tracking-wide text-muted lg:text-left">
+              From the vines to the board — pairings worth sharing.
+            </p>
           </div>
         </div>
       </section>
