@@ -53,13 +53,33 @@ p {
 }
 
 a {
-  color: #6b1e2a;
+  color: inherit;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* Maroon / burgundy filled buttons: always white label text */
+a.bg-burgundy,
+a.bg-burgundy-deep,
+a.bg-burgundy-soft,
+button.bg-burgundy,
+button.bg-burgundy-deep,
+button.bg-burgundy-soft {
+  color: #ffffff !important;
+}
+
+a.bg-burgundy:hover,
+a.bg-burgundy-deep:hover,
+a.bg-burgundy-soft:hover,
+button.bg-burgundy:hover,
+button.bg-burgundy-deep:hover,
+button.bg-burgundy-soft:hover {
+  color: #ffffff !important;
+  text-decoration: none;
 }
 
 hr {

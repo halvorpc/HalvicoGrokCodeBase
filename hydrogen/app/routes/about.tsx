@@ -82,7 +82,7 @@ export default function AboutPage() {
       <div className="mt-12 flex flex-wrap gap-3">
         <Link
           to="/pairings"
-          className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-cream transition hover:bg-burgundy-soft"
+          className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-white transition hover:bg-burgundy-soft"
         >
           Explore pairings
         </Link>

@@ -51,8 +51,8 @@ export default function PairingsIndex() {
           to="/pairings"
           className={`rounded-full px-3 py-1 text-xs font-medium transition ${
             !tag
-              ? 'bg-burgundy text-cream'
-              : 'bg-cream-dark text-burgundy-soft hover:bg-burgundy hover:text-cream'
+              ? 'bg-burgundy text-white'
+              : 'bg-cream-dark text-burgundy-soft hover:bg-burgundy hover:text-white'
           }`}
         >
           All
@@ -63,8 +63,8 @@ export default function PairingsIndex() {
             to={`/pairings?tag=${encodeURIComponent(t)}`}
             className={`rounded-full px-3 py-1 text-xs font-medium transition ${
               tag === t
-                ? 'bg-burgundy text-cream'
-                : 'bg-cream-dark text-burgundy-soft hover:bg-burgundy hover:text-cream'
+                ? 'bg-burgundy text-white'
+                : 'bg-cream-dark text-burgundy-soft hover:bg-burgundy hover:text-white'
             }`}
           >
             {formatTag(t)} <span className="opacity-70">({count})</span>

@@ -85,7 +85,7 @@ export default function Homepage() {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
               <Link
                 to="/pairings"
-                className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-cream shadow-sm transition hover:bg-burgundy-soft"
+                className="rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-burgundy-soft"
               >
                 Explore pairings
               </Link>

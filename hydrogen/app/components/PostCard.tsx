@@ -21,7 +21,7 @@ export function PostCard({post}: {post: PairingMeta}) {
           <Link
             key={tag}
             to={`/pairings?tag=${encodeURIComponent(tag)}`}
-            className="rounded-full bg-cream-dark px-2.5 py-0.5 text-xs text-burgundy-soft transition hover:bg-burgundy hover:text-cream"
+            className="rounded-full bg-cream-dark px-2.5 py-0.5 text-xs text-burgundy-soft transition hover:bg-burgundy hover:text-white"
           >
             {formatTag(tag)}
           </Link>
