@@ -13,22 +13,56 @@ export function Footer({
   header,
   publicStoreDomain,
 }: FooterProps) {
+  const year = new Date().getFullYear();
+
   return (
-    <Suspense>
-      <Await resolve={footerPromise}>
-        {(footer) => (
-          <footer className="footer">
-            {footer?.menu && header.shop.primaryDomain?.url && (
-              <FooterMenu
-                menu={footer.menu}
-                primaryDomainUrl={header.shop.primaryDomain.url}
-                publicStoreDomain={publicStoreDomain}
-              />
-            )}
-          </footer>
-        )}
-      </Await>
-    </Suspense>
+    <footer className="footer wine-footer">
+      <div className="wine-footer-grid">
+        <div>
+          <p className="wine-footer-brand">Wine Besties</p>
+          <p className="wine-footer-tagline">
+            A Halvico brand — elegant pairings without the snobbery.
+          </p>
+        </div>
+        <div>
+          <p className="wine-footer-heading">Explore</p>
+          <ul className="wine-footer-links">
+            <li>
+              <NavLink prefetch="intent" to="/pairings">
+                Pairings blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink prefetch="intent" to="/about">
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink prefetch="intent" to="/collections">
+                Shop
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="wine-footer-heading">Policies</p>
+          <Suspense>
+            <Await resolve={footerPromise}>
+              {(footer) => (
+                <FooterMenu
+                  menu={footer?.menu}
+                  primaryDomainUrl={header.shop.primaryDomain?.url || ''}
+                  publicStoreDomain={publicStoreDomain}
+                />
+              )}
+            </Await>
+          </Suspense>
+        </div>
+      </div>
+      <div className="wine-footer-copy">
+        © {year} Wine Besties / Halvico. Cheers. 🍷🧀
+      </div>
+    </footer>
   );
 }
 
@@ -38,38 +72,35 @@ function FooterMenu({
   publicStoreDomain,
 }: {
   menu: FooterQuery['menu'];
-  primaryDomainUrl: FooterProps['header']['shop']['primaryDomain']['url'];
+  primaryDomainUrl: string;
   publicStoreDomain: string;
 }) {
   return (
-    <nav className="footer-menu" role="navigation">
+    <ul className="wine-footer-links">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;
-        // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain) ||
-          item.url.includes(primaryDomainUrl)
+          (primaryDomainUrl && item.url.includes(primaryDomainUrl))
             ? new URL(item.url).pathname
             : item.url;
         const isExternal = !url.startsWith('/');
-        return isExternal ? (
-          <a href={url} key={item.id} rel="noopener noreferrer" target="_blank">
-            {item.title}
-          </a>
-        ) : (
-          <NavLink
-            end
-            key={item.id}
-            prefetch="intent"
-            style={activeLinkStyle}
-            to={url}
-          >
-            {item.title}
-          </NavLink>
+        return (
+          <li key={item.id}>
+            {isExternal ? (
+              <a href={url} rel="noopener noreferrer" target="_blank">
+                {item.title}
+              </a>
+            ) : (
+              <NavLink end prefetch="intent" to={url}>
+                {item.title}
+              </NavLink>
+            )}
+          </li>
         );
       })}
-    </nav>
+    </ul>
   );
 }
 
@@ -114,16 +145,3 @@ const FALLBACK_FOOTER_MENU = {
     },
   ],
 };
-
-function activeLinkStyle({
-  isActive,
-  isPending,
-}: {
-  isActive: boolean;
-  isPending: boolean;
-}) {
-  return {
-    fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'white',
-  };
-}
