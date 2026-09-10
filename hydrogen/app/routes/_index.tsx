@@ -206,14 +206,15 @@ function FeaturedCollection({
   const image = collection?.image;
   return (
     <Link
-      className="featured-collection wine-featured-collection"
+      className="featured-collection wine-featured-collection block max-w-xl"
       to={`/collections/${collection.handle}`}
     >
       {image && (
-        <div className="featured-collection-image">
+        <div className="featured-collection-image overflow-hidden rounded-2xl border border-gold/25 bg-cream-dark">
           <Image
             data={image}
-            sizes="100vw"
+            sizes="(min-width: 45em) 36rem, 90vw"
+            className="h-full w-full object-cover"
             alt={image.altText || collection.title}
           />
         </div>
